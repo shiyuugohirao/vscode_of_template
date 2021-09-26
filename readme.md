@@ -36,3 +36,11 @@ VSCode+WinでopenFrameworksのビルド+実行をするための設定ファイ�
 - includeまわりでエラーが出ていても一応、定義にジャンプしたり、ビルドできる場合もあります。
 - VscodeのC_Cpp:IntelliSenseEngineの設定でTagParserを設定している場合、includeのエラーは出ませんが、合わせてそのほかのエラーも表示されなくなるようです。  
 IntelliSenseEngineはDefaultなどにし、c_cpp_properties.jsonにinclude用のパスを指定するのが良さそうです。
+
+
+### VisualStudio2019
+- ProjectGeneraterからVisualStudio用のプロジェクトを生成すると通常VS2017用のプロジェクトが生成されます。  
+このためVS2019を使用する場合(VS2019のmsbuildを利用する場合)、ソリューションの再ターゲットが必要になります。以下のいずれかの対応を行ってください。
+    -  一度VisualStudio2019でプロジェクトを起動し、ソリューションの再ターゲットを行う。
+    - YOURPROJECT.vcxproj に記述されている `<PlatformToolset>v141</PlatformToolset>`を`<PlatformToolset>v142</PlatformToolset>` に変更する。
+        - 参考 [MSBuild プロジェクト ファイルを作成するには (4)](https://docs.microsoft.com/ja-jp/cpp/build/walkthrough-using-msbuild-to-create-a-visual-cpp-project?view=msvc-160#to-create-the-msbuild-project-file)
