@@ -15,7 +15,13 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-
+	"ofIncludeAddons": {
+		"prefix": "ofIncludeAddons",
+		"body": [
+			"\"${$workspaceFolder}/../../../addons/${1:ofxAddons}/src/\",",
+			"\"${$workspaceFolder}/../../../addons/${1:ofxAddons}/libs/**\",",
+		]
+	},
 	"ofHeader ": {
 		"prefix": "ofheader",
 		"body": [
@@ -28,7 +34,6 @@
 			"};"
 		]
 	},
-
 	"ofHeaderSetupUpdateDraw": {
 		"prefix": "ofheader-Setup-Update-Draw",
 		"body": [
@@ -37,7 +42,6 @@
 			"void draw();"
 		]
 	},
-
 	"ofImplSetupUpdateDraw": {
 		"prefix": "ofimpl-Setup-Update-Draw",
 		"body": [
@@ -54,8 +58,7 @@
 			"}",
 		]
 	},
-
-	"voidfunc" : {
+	"voidfunc": {
 		"prefix": "voidfunc",
 		"body": [
 			"void ${1:className}::${2:funcName}(${3:args})",
@@ -64,8 +67,7 @@
 			"}"
 		]
 	},
-
-	"func" : {
+	"func": {
 		"prefix": "func",
 		"body": [
 			"${1:className}::${2:funcName}(${3:args})",
@@ -74,20 +76,18 @@
 			"}"
 		]
 	},
-
-	"ofHeaderMouseFunc" : {
-		"prefix" : "ofheader-mouse-func",
-		"body" : [
+	"ofHeaderMouseFunc": {
+		"prefix": "ofheader-mouse-func",
+		"body": [
 			"void mouseMoved(ofMouseEventArgs & arg);",
 			"void mousePressed(ofMouseEventArgs & arg);",
 			"void mouseDragged(ofMouseEventArgs & arg);",
 			"void mouseReleased(ofMouseEventArgs & arg);"
 		]
 	},
-
-	"ofImplMouseFunc" : {
-		"prefix" : "ofimpl-mouse-func",
-		"body" : [
+	"ofImplMouseFunc": {
+		"prefix": "ofimpl-mouse-func",
+		"body": [
 			"void ${1:className}::mouseMoved(ofMouseEventArgs & arg)",
 			"{",
 			"\t",
@@ -106,20 +106,18 @@
 			"}"
 		]
 	},
-
-	"ofImplMouseListener" : {
-		"prefix" : "ofimpl-mouse-listener",
-		"body" : [
+	"ofImplMouseListener": {
+		"prefix": "ofimpl-mouse-listener",
+		"body": [
 			"ofAddListener(ofEvents().mouseMoved   , this, &${1:className}::mouseMoved);",
 			"ofAddListener(ofEvents().mousePressed , this, &${1:className}::mousePressed);",
 			"ofAddListener(ofEvents().mouseDragged , this, &${1:className}::mouseDragged);",
-			"ofAddListener(ofEvents().mouseReleased, this, &${1:className}::mouseReleased);		
+			"ofAddListener(ofEvents().mouseReleased, this, &${1:className}::mouseReleased);"
 		]
 	},
-
-	"cout" : {
-		"prefix" : "cout",
-		"body" : [
+	"cout": {
+		"prefix": "cout",
+		"body": [
 			"cout << \"${1:message}\" << endl;"
 		]
 	}
