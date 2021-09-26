@@ -5,11 +5,23 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(Windows) 起動",
-            "preLaunchTask": "build",
+            "name": "Run Release",
+            "preLaunchTask": "ReleaseBuild_x64",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}\\bin\\$$$YOURPROJECTNAME$$$_debug.exe",
+            "program": "${workspaceFolder}\\bin\\${workspaceFolderBasename}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false
+        },
+        {
+            "name": "Run Debug",
+            "preLaunchTask": "DebugBuild_x64",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\bin\\${workspaceFolderBasename}_debug.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

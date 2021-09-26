@@ -4,38 +4,68 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "ReleaseBuild_x64",
             "type": "shell",
             "command": "msbuild",
             "args": [
-                "./$$$YOURPROJECTNAME$$$.sln",
-                "/p:configuration=debug",
+                "./${workspaceFolderBasename}.sln",
+                "/p:configuration=release",
                 "/p:platform=x64"
             ],
-            "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "presentation": {
-                // Reveal the output only if unrecognized errors occur.
                 "reveal": "silent"
             },
-            // Use the standard MS compiler pattern to detect errors, warnings and infos
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "cleanBuild",
+            "label": "DebugBuild_x64",
             "type": "shell",
             "command": "msbuild",
             "args": [
-                "./$$$YOURPROJECTNAME$$$.sln",
-                "/t:Clean"
+                "./${workspaceFolderBasename}.sln",
                 "/p:configuration=debug",
                 "/p:platform=x64"
             ],
             "group": "build",
             "presentation": {
-                // Reveal the output only if unrecognized errors occur.
                 "reveal": "silent"
             },
-            // Use the standard MS compiler pattern to detect errors, warnings and infos
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "ReleaseClean_x64",
+            "type": "shell",
+            "command": "msbuild",
+            "args": [
+                "./${workspaceFolderBasename}.sln",
+                "/t:Clean",
+                "/p:configuration=release",
+                "/p:platform=x64"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "DebugClean_x64",
+            "type": "shell",
+            "command": "msbuild",
+            "args": [
+                "./${workspaceFolderBasename}.sln",
+                "/t:Clean",
+                "/p:configuration=debug",
+                "/p:platform=x64"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
             "problemMatcher": "$msCompile"
         }
     ]
