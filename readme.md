@@ -25,20 +25,22 @@ VSCode+WinでopenFrameworksのビルド+実行をするための設定ファイ�
 - F5でビルド＆実行
 
 
-
 ### msbuild
+
 - VisualStudioのmsbuildコマンドを利用してビルドを行うためmsbuildへのパスを通しておく必要があります。  
-環境パスに `C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin` など追加してください。
+環境パスに `C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin` など MSBuild.exeのあるパスを追加してください。  
+※環境パスへ追加後でもVSCodeのTerminalで認識できない場合があるようです。自分の場合、一度PCを再起動すると認識しました。
 
 ### include
+
 - includeで赤線のエラーが出る場合、c_cpp_properties.jsonの指定がうまくできていない可能性が高いです。
-- addonsがある場合は、
 - includeまわりでエラーが出ていても一応、定義にジャンプしたり、ビルドできる場合もあります。
 - VscodeのC_Cpp:IntelliSenseEngineの設定でTagParserを設定している場合、includeのエラーは出ませんが、合わせてそのほかのエラーも表示されなくなるようです。  
 IntelliSenseEngineはDefaultなどにし、c_cpp_properties.jsonにinclude用のパスを指定するのが良さそうです。
 
 
 ### VisualStudio2019
+
 - ProjectGeneraterからVisualStudio用のプロジェクトを生成すると通常VS2017用のプロジェクトが生成されます。  
 このためVS2019を使用する場合(VS2019のmsbuildを利用する場合)、ソリューションの再ターゲットが必要になります。以下のいずれかの対応を行ってください。
     -  一度VisualStudio2019でプロジェクトを起動し、ソリューションの再ターゲットを行う。
